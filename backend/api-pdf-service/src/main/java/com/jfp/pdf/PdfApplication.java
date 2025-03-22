@@ -1,12 +1,12 @@
-package com.jfp.uploads;
+package com.jfp.pdf;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class UploadsApplication {
+public class PdfApplication {
 
   public static void main(String[] args) {
-    SpringApplication.run(UploadsApplication.class, args);
+    SpringApplication.run(PdfApplication.class, args);
   }
 }

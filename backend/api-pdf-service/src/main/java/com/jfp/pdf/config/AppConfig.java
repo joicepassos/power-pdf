@@ -1,4 +1,4 @@
-package com.jfp.uploads.config;
+package com.jfp.pdf.config;
 
 import static org.springframework.http.MediaType.APPLICATION_FORM_URLENCODED;
 
@@ -40,13 +40,13 @@ public class AppConfig {
   @Bean
   OpenAPI openApi() {
     var server = new Server();
-    String context = "/uploads";
+    String context = "/api/pdfs";
     String url = "http://localhost";
     String port = "8082";
     server.setUrl(url + ":" + port + context);
     server.setDescription("local");
     String version = "1.0";
-    String title = "Uploads API";
+    String title = "API PDF Service";
     return new OpenAPI().info(new Info().title(title).version(version)).servers(List.of(server));
   }
 
