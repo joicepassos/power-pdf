@@ -35,3 +35,69 @@ out/
 
 ### VS Code ###
 .vscode/
+
+HELP.md
+
+### Logs ###
+*.log
+logs/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+out/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+# Eclipse
+.classpath
+.project
+.settings/
+bin/
+tmp/
+
+### Sistema operacional ###
+.DS_Store
+Thumbs.db
+
+### Arquivos temporários ###
+*.tmp
+*.bak
+*.swp
+
+### Arquivos de ambiente ###
+.env
+*.env
+
+### Outros ###
+*.original
+*.rej
+*.class
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
