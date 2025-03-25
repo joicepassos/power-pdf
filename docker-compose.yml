@@ -1,18 +1,40 @@
 version: '3.8'
 
 services:
-  backend:
-    build: ./backend
+  files:
+    build: ./backend/files-service
+    ports:
+      - "8080:8080"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/power_files
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=admin
+      - SPRING_FLYWAY_ENABLED=true
+      - JAVA_OPTS=-Xms512m -Xmx1024m
+    restart: always
+
+  file-processor:
+    build: ./backend/file-processor-service
     ports:
       - "8081:8081"
     depends_on:
       mysql:
         condition: service_healthy
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/powerpdf
-      - SPRING_DATASOURCE_USERNAME=root
-      - SPRING_DATASOURCE_PASSWORD=admin
-      - SPRING_FLYWAY_ENABLED=true
+      - JAVA_OPTS=-Xms512m -Xmx1024m
+    restart: always
+
+  storage:
+    build: ./backend/storage-service
+    ports:
+      - "8082:8082"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    environment:
       - JAVA_OPTS=-Xms512m -Xmx1024m
     restart: always
 
@@ -20,7 +42,7 @@ services:
     image: mysql:8.0
     environment:
       - MYSQL_ROOT_PASSWORD=admin
-      - MYSQL_DATABASE=powerpdf
+      - MYSQL_DATABASE=power_files
     volumes:
       - mysql-data:/var/lib/mysql
     healthcheck:
@@ -43,5 +65,34 @@ services:
       retries: 5
     restart: always
 
+  minio:
+    image: minio/minio:latest
+    container_name: minio-storage
+    restart: always
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    environment:
+      MINIO_ROOT_USER: minio
+      MINIO_ROOT_PASSWORD: minio123
+    volumes:
+      - minio_data:/data
+    command: server --console-address ":9001" /data
+
+  minio-create-bucket:
+    image: minio/mc
+    depends_on:
+      - minio
+    entrypoint: >
+      /bin/sh -c "
+      sleep 5;
+      /usr/bin/mc alias set local http://minio:9000 minio minio123;
+      /usr/bin/mc mb local/files-bucket;
+      /usr/bin/mc policy set public local/files-bucket;
+      exit 0;
+      "
+
+
 volumes:
   mysql-data:
+  minio_data:

@@ -5,22 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="811ebb32-0c7e-41c5-a5a7-3be7e6a3db36" name="Changes" comment="feat: add pdf-api configs">
-      <change beforePath="$PROJECT_DIR$/../../backend/api-pdf-service/.gitattributes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../backend/api-pdf-service/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../backend/api-pdf-service/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../backend/api-pdf-service/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../backend/api-pdf-service/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../backend/api-pdf-service/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../backend/api-pdf-service/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../backend/api-pdf-service/logs/uploads.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../backend/api-pdf-service/settings.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../backend/api-pdf-service/src/main/java/com/jfp/pdf/PdfApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../backend/api-pdf-service/src/main/java/com/jfp/pdf/config/AppConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../backend/api-pdf-service/src/main/java/com/jfp/pdf/config/SecurityConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../backend/api-pdf-service/src/main/java/com/jfp/pdf/entity/PdfDocument.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../backend/api-pdf-service/src/main/java/com/jfp/pdf/entity/PdfFile.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../backend/api-pdf-service/src/main/resources/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../backend/api-pdf-service/src/test/java/com/jfp/uploads/UploadsApplicationTests.java" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../backend/src/main/java/com/jfp/files/pdf/exception/ErrorResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../backend/src/main/java/com/jfp/files/pdf/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../backend/src/main/java/com/jfp/files/pdf/exception/ResourceNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../backend/src/main/java/com/jfp/files/pdf/exception/UnauthorizedException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../backend/src/main/java/com/jfp/files/pdf/service/MergeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../backend/src/main/java/com/jfp/files/pdf/service/impl/MergeServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../../Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../backend/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../backend/src/main/java/com/jfp/pdf/PdfApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/src/main/java/com/jfp/files/FilesApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../backend/src/main/java/com/jfp/pdf/api/controller/MergeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/src/main/java/com/jfp/files/pdf/controller/MergeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../backend/src/main/java/com/jfp/pdf/api/entity/PdfDocument.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/src/main/java/com/jfp/files/pdf/entity/Document.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../backend/src/main/java/com/jfp/pdf/api/entity/PdfFile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../backend/src/main/java/com/jfp/pdf/api/service/MergeService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../backend/src/main/java/com/jfp/pdf/api/service/impl/MergeServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../backend/src/main/java/com/jfp/pdf/api/util/ApiUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/src/main/java/com/jfp/files/pdf/util/ApiUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../backend/src/main/java/com/jfp/pdf/config/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/src/main/java/com/jfp/files/config/AppConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../backend/src/main/java/com/jfp/pdf/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/src/main/java/com/jfp/files/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../backend/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../backend/src/main/resources/db/migration/V1_initial.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/src/main/resources/db/migration/V1_initial.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../backend/src/main/resources/db/migration/V2_add_status.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/src/main/resources/db/migration/V2_add_status.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../backend/src/main/resources/db/migration/V3_add_archives.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../backend/src/test/java/com/jfp/pdf/PdfApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/src/test/java/com/jfp/files/FilesApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,23 +89,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Gradle.api-pdf-service [:com.jfp.pdf.PdfApplication.main()].executor": "Run",
-    "Gradle.api-pdf-service [spotlessJavaApply].executor": "Run",
-    "Gradle.backend [:com.jfp.pdf.PdfApplication.main()].executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/joice/OneDrive/Documentos/power-pdf/backend",
-    "project.structure.last.edited": "SDKs",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "google-java-format.settings"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.api-pdf-service [:com.jfp.pdf.PdfApplication.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.api-pdf-service [spotlessJavaApply].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.backend [:com.jfp.pdf.PdfApplication.main()].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/joice/OneDrive/Documentos/power-pdf/backend&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;google-java-format.settings&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.PDF Service">
     <configuration name="PDF Service" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="corretto-21" />

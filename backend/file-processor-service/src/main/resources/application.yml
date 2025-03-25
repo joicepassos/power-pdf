@@ -1,0 +1,45 @@
+application:
+  title: API File Processor Service
+  version: v1.0
+
+spring:
+  jackson:
+    default-property-inclusion: non_null
+    deserialization:
+      fail-on-unknown-properties: false
+  security:
+    user:
+      name: admin
+      password: $2a$10$YgEE0XpMb0vjEbhmNt59UOhk5KTCiIHfaHL2THfPFUhdt8qgxrSOe
+  threads:
+    virtual:
+      enabled: true
+  mvc:
+    dispatch-trace-request: true
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+
+server:
+  servlet:
+    context-path: /file-processor
+  port: 8081
+
+
+app:
+  url: http://localhost
+  token: 4pTtiALMXVjDErv3MR5HZxdwDfzO1m2v
+  storage:
+    url: http://localhost:8082/storage
+    bucket: files-bucket
+    auth: YWRtaW46JDJhJDEwJFlnRUUwWHBNYjB2akViaG1OdDU5VU9oazVLVENpSUhmYUhMMlRIZlBGVWhkdDhxZ3hyU09l
+
+logging:
+  level:
+    root: INFO
+    com.jfp.files: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+  file:
+    name: logs/files.log
