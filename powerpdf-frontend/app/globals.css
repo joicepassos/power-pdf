@@ -1,0 +1,72 @@
+@import "tailwindcss";
+@import 'primereact/resources/themes/lara-light-blue/theme.css'; 
+@import 'primereact/resources/primereact.min.css';
+@import 'primeicons/primeicons.css';
+
+/* Importar a fonte Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --font-family: 'Inter', sans-serif;
+
+  /* Cores principais */
+  --blue-700: #0259BB;
+  --blue-500: #177EF3;
+  --blue-gray-500: #435265;
+  --gray-100: #E2ECF2;
+  --gray-200: #DEE5E9;
+  --gray-300: #D6D4D4;
+}
+
+/* Aplicar a fonte no corpo */
+body {
+  font-family: var(--font-family);
+  font-size: 14px; 
+  background-color: var(--gray-100);
+  color: var(--blue-gray-500);
+}
+
+.text-sm { font-size: 12px; }
+.text-md { font-size: 14px; }
+.text-lg { font-size: 16px; }
+
+.p-button {
+  font-family: var(--font-family);
+  border-radius: 6px;
+  font-size: 14px;
+  padding: 8px 16px;
+}
+
+.p-button.p-button-primary {
+  background-color: var(--blue-500) !important;
+  border-color: var(--blue-500) !important;
+  color: white !important;
+}
+
+.p-button.p-button-secondary {
+  background-color: var(--blue-700) !important;
+  border-color: var(--blue-700) !important;
+  color: white !important;
+}
+
+.p-button.p-button-info {
+  background-color: var(--blue-gray-500) !important;
+  border-color: var(--blue-gray-500) !important;
+  color: white !important;
+}
+
+.p-button.p-button-warning {
+  background-color: var(--gray-200) !important;
+  border-color: var(--gray-200) !important;
+  color: black !important;
+}
+
+.p-button.p-button-danger {
+  background-color: var(--gray-300) !important;
+  border-color: var(--gray-300) !important;
+  color: black !important;
+}
+
+.bg-gradient-custom {
+  background: linear-gradient(90deg, #177EF3 20%, #0259BB 80%);
+}

@@ -91,7 +91,19 @@ services:
       /usr/bin/mc policy set public local/files-bucket;
       exit 0;
       "
-
+  frontend:
+      build: ./frontend
+      ports:
+        - "3000:3000"
+      depends_on:
+        - files
+        - file-processor
+        - storage
+      restart: always
+      environment:
+        - NEXT_PUBLIC_API_URL=http://files:8080
+        - NODE_ENV=development
+      command: npm start
 
 volumes:
   mysql-data:
