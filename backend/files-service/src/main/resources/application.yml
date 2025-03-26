@@ -2,6 +2,11 @@ application:
   title: API Files Service
   version: v1.0
 
+cors:
+  allowed:
+    originPatterns: http://localhost:8081,http://localhost:3000,http://localhost,http://localhost:8082
+    methods: GET,POST,PUT,PATCH,DELETE
+
 spring:
   jackson:
     default-property-inclusion: non_null
@@ -32,6 +37,29 @@ spring:
     sql-migration-prefix: V
     sql-migration-suffixes: .sql
     validate-on-migrate: true
+  rabbitmq:
+    host: rabbitmq
+    port: 5672
+    username: powerpdf
+    password: powerpdf
+    queue:
+      name: pdf_merge_queue
+    exchange:
+      name: pdf_merge_exchange
+    template:
+      retry:
+        enabled: true
+        initial-interval: 5s
+        max-interval: 10s
+        multiplier: 1.5
+    listener:
+      direct:
+        acknowledge-mode: auto
+      simple:
+        acknowledge-mode: auto
+        concurrency: 1
+        max-concurrency: 1
+
   servlet:
     multipart:
       max-file-size: 50MB

@@ -2,22 +2,16 @@ package com.jfp.files.pdf.controller;
 
 import static com.jfp.files.pdf.util.ApiUtil.V1_MERGE_API;
 import static org.springframework.http.HttpStatus.CREATED;
-import static org.springframework.http.MediaType.MULTIPART_FORM_DATA_VALUE;
 
-import com.jfp.files.pdf.dto.response.MergeFileResponse;
+import com.jfp.files.pdf.dto.MergeFileResponse;
+import com.jfp.files.pdf.dto.request.CreateMergeRequest;
 import com.jfp.files.pdf.service.MergeService;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
-import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RestController
@@ -27,18 +21,20 @@ public class MergeController {
 
   private final MergeService mergeService;
 
-  @PostMapping(
-      value = "/merge",
-      produces = MediaType.APPLICATION_JSON_VALUE,
-      consumes = MULTIPART_FORM_DATA_VALUE)
-  public ResponseEntity<MergeFileResponse> mergeBath(
-      @RequestParam("files") final List<MultipartFile> files,
-      @RequestParam("fileName") @Valid @NotNull final String fileName) {
+  @PostMapping
+  public ResponseEntity<MergeFileResponse> createNewMerge(
+      @RequestBody @Valid @NotNull CreateMergeRequest request) {
 
-    log.info("[MergeController] - Merging files - Name: {}, Path: {}", fileName, files.size());
+    log.info(
+        "[MergeController] - Creating new merge with fileName: {} and {} files",
+        request.fileName(),
+        request.files().size());
 
-    MergeFileResponse fileUrl = mergeService.mergeFiles(files, fileName);
+    MergeFileResponse mergeFileResponse =
+        mergeService.mergeFiles(request.files(), request.fileName());
 
-    return ResponseEntity.status(CREATED).body(fileUrl);
+    log.info("[MergeController] - Merge created successfully at {}", mergeFileResponse.link());
+
+    return ResponseEntity.status(CREATED).body(mergeFileResponse);
   }
 }

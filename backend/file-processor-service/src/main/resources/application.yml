@@ -20,6 +20,23 @@ spring:
     multipart:
       max-file-size: 50MB
       max-request-size: 50MB
+  rabbitmq:
+    host: rabbitmq
+    port: 5672
+    username: powerpdf
+    password: powerpdf
+    queue:
+      name: pdf_merge_queue
+    exchange:
+      name: pdf_merge_exchange
+    listener:
+      direct:
+        acknowledge-mode: auto
+      simple:
+        acknowledge-mode: auto
+        concurrency: 1
+        max-concurrency: 1
+        prefetch: 1
 
 server:
   servlet:

@@ -1,15 +1,19 @@
 package com.jfp.files.processor.service.impl;
 
-import com.itextpdf.text.Document;
-import com.itextpdf.text.pdf.*;
 import com.jfp.files.processor.client.StorageClient;
 import com.jfp.files.processor.client.dto.UploadFileResponse;
 import com.jfp.files.processor.exception.PdfProcessingException;
 import com.jfp.files.processor.service.PdfService;
-import java.io.FileOutputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import java.net.URI;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.pdfbox.multipdf.PDFMergerUtility;
+import org.apache.pdfbox.pdmodel.PDDocument;
 import org.springframework.stereotype.Service;
 
 @Slf4j
@@ -23,40 +27,43 @@ public class PdfServiceImpl implements PdfService {
   public String mergePdfFiles(List<String> files, String resultFileName) {
     log.info("[FileProcessor] Merging PDF files into {}", resultFileName);
 
-    try {
-      Document document = new Document();
-      PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(resultFileName));
-      document.open();
+    try (ByteArrayOutputStream outputStream = new ByteArrayOutputStream()) {
+      PDFMergerUtility pdfMerger = new PDFMergerUtility();
+      pdfMerger.setDestinationStream(outputStream);
 
-      for (String file : files) {
-        byte[] pdfBytes = storageClient.downloadFile(file);
-        PdfReader pdfReader = new PdfReader(pdfBytes);
-
-        for (int page = 1; page <= pdfReader.getNumberOfPages(); page++) {
-          document.newPage();
-          PdfContentByte content = writer.getDirectContent();
-          PdfImportedPage importedPage = writer.getImportedPage(pdfReader, page);
-          content.addTemplate(importedPage, 0, 0);
+      for (String fileUrl : files) {
+        try (InputStream inputStream = downloadFromUrl(fileUrl);
+            PDDocument document = PDDocument.load(inputStream)) {
+          pdfMerger.addSource(document.toString());
         }
-
-        pdfReader.close();
       }
 
-      document.close();
-      writer.close();
-
+      pdfMerger.mergeDocuments(null);
+      byte[] mergedPdfBytes = outputStream.toByteArray();
       log.info("[FileProcessor] PDF files merged successfully");
 
       UploadFileResponse uploadFileResponse =
-          storageClient.uploadFile(document.toString().getBytes(), resultFileName);
+          storageClient.uploadFile(mergedPdfBytes, resultFileName);
       log.info(
           "[FileProcessor] PDF file uploaded successfully - URL: {}",
           uploadFileResponse.fileName());
 
       return uploadFileResponse.fileName();
     } catch (Exception e) {
-      log.error("[FileProcessor] Error on merge PDF files", e);
-      throw new PdfProcessingException("Error on merge PDF files");
+      log.error("[FileProcessor] Error merging PDF files", e);
+      throw new PdfProcessingException("Error merging PDF files", e);
+    }
+  }
+
+  private InputStream downloadFromUrl(String fileUrl) {
+    try {
+      URI uri = URI.create(fileUrl);
+      URL url = uri.toURL();
+      URLConnection connection = url.openConnection();
+      return connection.getInputStream();
+    } catch (Exception e) {
+      log.error("Error downloading file from {}", fileUrl, e);
+      throw new RuntimeException("Failed to download file: " + fileUrl, e);
     }
   }
 }

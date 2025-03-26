@@ -51,6 +51,8 @@ plugins {
 		implementation 'org.springframework.boot:spring-boot-starter-aop'
 		implementation 'net.logstash.logback:logstash-logback-encoder:8.0'
 		implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.6.0'
+		implementation 'org.springframework.boot:spring-boot-starter-amqp'
+
 
 		implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 		implementation 'org.flywaydb:flyway-core:10.13.0'
@@ -69,6 +71,12 @@ plugins {
 		testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 		testImplementation 'org.springframework.boot:spring-boot-testcontainers'
 		testImplementation 'org.testcontainers:junit-jupiter'
+		testImplementation 'org.springframework.amqp:spring-rabbit-test'
+
+		testImplementation 'org.testcontainers:junit-jupiter:1.18.0'
+		testImplementation 'org.testcontainers:rabbitmq:1.18.0'
+
+		testImplementation 'org.testcontainers:mysql'
 	}
 
 	test {

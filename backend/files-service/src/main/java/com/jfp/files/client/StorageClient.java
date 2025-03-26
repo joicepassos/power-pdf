@@ -39,29 +39,28 @@ public class StorageClient {
   public UploadFileResponse uploadFile(
       final ByteArrayResource byteArray, final String filePath, final Boolean temporary) {
 
-      final String uri =
-          "%s/files/upload?temporary=%b&filePath=%s".formatted(storageUrl, temporary, filePath);
+    final String uri =
+        "%s/files/upload?temporary=%b&filePath=%s".formatted(storageUrl, temporary, filePath);
 
-      log.info("[StorageClient] - Uploading file - Path: {}", filePath);
+    log.info("[StorageClient] - Uploading file - Path: {}", filePath);
 
-      var body = new LinkedMultiValueMap<>();
-      body.add("file", byteArray);
+    var body = new LinkedMultiValueMap<>();
+    body.add("file", byteArray);
 
-      UploadFileResponse response =
-          restClient
-              .post()
-              .uri(uri)
-              .body(body)
-              .headers(getHeaders())
-              .retrieve()
-              .onStatus(HttpStatusCode::isError, this::handleException)
-              .toEntity(UploadFileResponse.class)
-              .getBody();
+    UploadFileResponse response =
+        restClient
+            .post()
+            .uri(uri)
+            .body(body)
+            .headers(getHeaders())
+            .retrieve()
+            .onStatus(HttpStatusCode::isError, this::handleException)
+            .toEntity(UploadFileResponse.class)
+            .getBody();
 
-      log.info("[StorageClient] - File uploaded - Path: {}", filePath);
+    log.info("[StorageClient] - File uploaded - Path: {}", filePath);
 
-      return response;
-
+    return response;
   }
 
   public void handleException(final HttpRequest request, final ClientHttpResponse response)

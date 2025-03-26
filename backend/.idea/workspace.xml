@@ -5,31 +5,61 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8dedb7c4-8497-46a4-b4c4-95be9a72c1dc" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/files-service/src/main/java/com/jfp/files/pdf/controller/MergesReportController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/files-service/src/main/java/com/jfp/files/pdf/repository/FileProcesstRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/files-service/src/main/java/com/jfp/files/pdf/service/FileProcessService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/files-service/src/main/java/com/jfp/files/pdf/service/impl/FileProcessServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/files-service/src/main/resources/db/migration/V3_add_status.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/backend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/backend/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jfp/pdf/PdfApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jfp/pdf/api/controller/MergeController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jfp/pdf/api/entity/PdfDocument.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jfp/pdf/api/entity/PdfFile.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jfp/pdf/api/service/MergeService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jfp/pdf/api/service/impl/MergeServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jfp/pdf/api/util/ApiUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jfp/pdf/config/AppConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jfp/pdf/config/SecurityConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V1_initial.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V2_add_status.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V3_add_archives.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/jfp/pdf/PdfApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/file-processor-service/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/file-processor-service/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/file-processor-service/src/main/java/com/jfp/files/processor/controller/PdfController.java" beforeDir="false" afterPath="$PROJECT_DIR$/file-processor-service/src/main/java/com/jfp/files/processor/controller/PdfController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/file-processor-service/src/main/java/com/jfp/files/processor/dto/MergeBatchRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/file-processor-service/src/main/java/com/jfp/files/processor/dto/MergeBatchRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/file-processor-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/file-processor-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files-service/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/files-service/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files-service/src/main/java/com/jfp/files/client/StorageClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/files-service/src/main/java/com/jfp/files/client/StorageClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files-service/src/main/java/com/jfp/files/pdf/controller/FileDocumentController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/files-service/src/main/java/com/jfp/files/pdf/controller/MergeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/files-service/src/main/java/com/jfp/files/pdf/controller/MergeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files-service/src/main/java/com/jfp/files/pdf/dto/response/MergeFileResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/files-service/src/main/java/com/jfp/files/pdf/dto/MergeFileResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files-service/src/main/java/com/jfp/files/pdf/entity/DocumentStatusHistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/files-service/src/main/java/com/jfp/files/pdf/entity/FileProcessStatusHistory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files-service/src/main/java/com/jfp/files/pdf/entity/FileDocument.java" beforeDir="false" afterPath="$PROJECT_DIR$/files-service/src/main/java/com/jfp/files/pdf/entity/FileProcess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files-service/src/main/java/com/jfp/files/pdf/mapper/FileDocumentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/files-service/src/main/java/com/jfp/files/pdf/mapper/FileDocumentMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files-service/src/main/java/com/jfp/files/pdf/repository/FileDocumentRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/files-service/src/main/java/com/jfp/files/pdf/service/FileDocumentService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/files-service/src/main/java/com/jfp/files/pdf/service/MergeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/files-service/src/main/java/com/jfp/files/pdf/service/MergeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files-service/src/main/java/com/jfp/files/pdf/service/impl/FileDocumentServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/files-service/src/main/java/com/jfp/files/pdf/service/impl/MergeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/files-service/src/main/java/com/jfp/files/pdf/service/impl/MergeServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files-service/src/main/java/com/jfp/files/pdf/util/ApiUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/files-service/src/main/java/com/jfp/files/pdf/util/ApiUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/files-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files-service/src/main/resources/db/migration/V1_initial.sql" beforeDir="false" afterPath="$PROJECT_DIR$/files-service/src/main/resources/db/migration/V1_initial.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files-service/src/main/resources/db/migration/V2_add_status.sql" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/eslint.config.mjs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/next.config.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/postcss.config.mjs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/public/file.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/public/power.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/_providers/FileMergeProvider.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/globals.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/pages/_app.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/pages/api/upload.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/pages/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/tailwind.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../powerpdf-frontend/app/api/upload/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../powerpdf-frontend/app/api/upload/route.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../powerpdf-frontend/app/components/MergeFilesForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../powerpdf-frontend/app/components/MergeFilesForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../powerpdf-frontend/app/components/files/FileSelect.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../powerpdf-frontend/app/components/files/FileSelect.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../powerpdf-frontend/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../powerpdf-frontend/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../powerpdf-frontend/app/teste/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../powerpdf-frontend/eslint.config.mjs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../powerpdf-frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../powerpdf-frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../powerpdf-frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../powerpdf-frontend/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,22 +74,22 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "joicepassos"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;joicepassos&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/joicepassos/power-pdf.git",
-    "accountId": "d3a63171-1a55-4117-a6ef-4aed520d9713"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/joicepassos/power-pdf.git&quot;,
+    &quot;accountId&quot;: &quot;d3a63171-1a55-4117-a6ef-4aed520d9713&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 1
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2umhFaHKMzYottEd0b4HVXPJ4qY" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -68,6 +98,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/joice/OneDrive/Documentos/power-pdf/backend/storage-service",
@@ -75,14 +106,6 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
-      </set>
-    </attachedChunks>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

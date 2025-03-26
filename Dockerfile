@@ -16,8 +16,8 @@ WORKDIR /app/backend/storage-service
 COPY ./backend/storage-service/Dockerfile .
 RUN ./gradlew build
 # Construir frontend
-WORKDIR /app/frontend
-COPY ./frontend/Dockerfile .
+WORKDIR /app/powerpdf-frontend
+COPY ./powerpdf-frontend/Dockerfile .
 RUN npm install && npm run build
 
 # Criar imagem final

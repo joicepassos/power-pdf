@@ -1,13 +1,13 @@
 package com.jfp.files.pdf.mapper;
 
-import com.jfp.files.pdf.dto.response.MergeFileResponse;
-import com.jfp.files.pdf.entity.FileDocument;
+import com.jfp.files.pdf.dto.MergeFileResponse;
+import com.jfp.files.pdf.entity.FileProcess;
 import org.springframework.stereotype.Component;
 
 @Component
 public class FileDocumentMapper {
 
-  public MergeFileResponse toMergeFileResponse(FileDocument document) {
+  public MergeFileResponse toMergeFileResponse(FileProcess document) {
     if (document == null) {
       return null;
     }
