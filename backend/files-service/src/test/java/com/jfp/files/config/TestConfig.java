@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Import;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 
 @AutoConfigureMockMvc
@@ -17,7 +16,6 @@ import org.springframework.test.web.servlet.MockMvc;
     },
     webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @Import(TestContainerConfig.class)
-@ContextConfiguration(classes = {TestRabbitMQConfig.class})
 public abstract class TestConfig {
   protected static final String TOKEN = "token";
   protected static final String BASIC_AUTH = "Basic dGVzdDp0ZXN0";

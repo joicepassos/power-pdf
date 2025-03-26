@@ -10,7 +10,7 @@ interface Merge {
     name: string;
     date: string;
     status: string;
-    downloadUrl: string | null;
+    link: string | null;
 }
 
 const MergedFiles: React.FC = () => {
@@ -27,14 +27,14 @@ const MergedFiles: React.FC = () => {
     }, []);
 
     const downloadBodyTemplate = (rowData: Merge) => {
-        if (rowData.downloadUrl) {
+        if (rowData.link) {
             return (
-                <a href={rowData.downloadUrl} download>
+                <a href={rowData.link} download>
                     <button className="p-button p-component p-button-text">Download</button>
                 </a>
             );
         } else {
-            return <span>{rowData.status === 'completed' ? 'Loading' : 'Pendente'}</span>;
+            return <span>Processando</span>;
         }
     };
 

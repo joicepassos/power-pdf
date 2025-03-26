@@ -10,6 +10,7 @@ import org.springframework.amqp.rabbit.annotation.Queue;
 import org.springframework.amqp.rabbit.annotation.QueueBinding;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Slf4j
@@ -20,7 +21,10 @@ public class PdfMergeReceiver {
   private final PdfService pdfService;
   private final RabbitTemplate rabbitTemplate;
 
-  @RabbitListener()
+  @Value("${spring.rabbitmq.queue.name:pdf_merge_queue}")
+  private String queueName;
+
+  @RabbitListener(queues = "${spring.rabbitmq.queue.name}")
   public void receiveMessage(PdfMergeMessage message) {
     log.info("Message {} received - Paths to Merge: {}", message.messageId(), message.files());
 

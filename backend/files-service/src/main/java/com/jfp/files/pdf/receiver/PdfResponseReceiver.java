@@ -2,9 +2,6 @@ package com.jfp.files.pdf.receiver;
 
 import com.jfp.files.pdf.dto.PdfResponseMessage;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.amqp.rabbit.annotation.Exchange;
-import org.springframework.amqp.rabbit.annotation.Queue;
-import org.springframework.amqp.rabbit.annotation.QueueBinding;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
@@ -12,12 +9,7 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class PdfResponseReceiver {
 
-  @RabbitListener(
-      bindings =
-          @QueueBinding(
-              value = @Queue(value = "pdf_response_queue", durable = "true"),
-              exchange = @Exchange(value = "pdf_response_exchange"),
-              key = "pdf.response.*"))
+  @RabbitListener(queues = "${spring.rabbitmq.queue.name}")
   public void receiveResponse(PdfResponseMessage message) {
     try {
       log.info("Response with message {} received", message.messageId());
