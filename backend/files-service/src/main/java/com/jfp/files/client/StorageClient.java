@@ -22,8 +22,6 @@ import org.springframework.http.client.ClientHttpResponse;
 import org.springframework.stereotype.Component;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.web.client.RestClient;
-import org.springframework.web.client.RestClientException;
-import org.springframework.web.multipart.MultipartFile;
 
 @Slf4j
 @Component
@@ -38,36 +36,33 @@ public class StorageClient {
 
   private final RestClient restClient;
 
+  public UploadFileResponse uploadFile(
+      final ByteArrayResource byteArray, final String filePath, final Boolean temporary) {
 
-  public UploadFileResponse uploadFile(final ByteArrayResource byteArray, final String filePath, final Boolean temporary) {
-    try {
-      final String uri = "%s/upload?temporary=%b&filePath=%s".formatted(storageUrl, temporary, filePath);
+      final String uri =
+          "%s/files/upload?temporary=%b&filePath=%s".formatted(storageUrl, temporary, filePath);
 
       log.info("[StorageClient] - Uploading file - Path: {}", filePath);
 
       var body = new LinkedMultiValueMap<>();
       body.add("file", byteArray);
 
-
       UploadFileResponse response =
-              restClient
-                      .post()
-                      .uri(uri)
-                      .body(body)
-                      .headers(getHeaders())
-                      .retrieve()
-                      .onStatus(HttpStatusCode::isError, this::handleException)
-                      .toEntity(UploadFileResponse.class)
-                      .getBody();
+          restClient
+              .post()
+              .uri(uri)
+              .body(body)
+              .headers(getHeaders())
+              .retrieve()
+              .onStatus(HttpStatusCode::isError, this::handleException)
+              .toEntity(UploadFileResponse.class)
+              .getBody();
 
       log.info("[StorageClient] - File uploaded - Path: {}", filePath);
 
       return response;
-    } catch (Exception e) {
-      throw new RestClientException("Falha ao fazer upload do arquivo", e);
-    }
-  }
 
+  }
 
   public void handleException(final HttpRequest request, final ClientHttpResponse response)
       throws IOException {

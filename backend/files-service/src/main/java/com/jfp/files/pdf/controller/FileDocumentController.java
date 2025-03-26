@@ -21,13 +21,14 @@ public class FileDocumentController {
 
   private final FileDocumentService fileDocumentService;
 
-  @GetMapping
-  public ResponseEntity<List<FileDocument>> listAllWithPagination(
-      @RequestParam(value = "page", defaultValue = "0") int page,
-      @RequestParam(value = "size", defaultValue = "10") int size) {
+//  @GetMapping
+//  public ResponseEntity<List<FileDocument>> listAllWithPagination(
+//      @RequestParam(value = "page", defaultValue = "0") int page,
+//      @RequestParam(value = "size", defaultValue = "10") int size) {
+//
+//    List<FileDocument> fileDocuments = fileDocumentService.getAllWithPagination(page, size);
+//
+//    return ResponseEntity.ok(fileDocuments);
+//
 
-    List<FileDocument> fileDocuments = fileDocumentService.getAllWithPagination(page, size);
-
-    return ResponseEntity.ok(fileDocuments);
-  }
 }

@@ -6,7 +6,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     switch (method) {
         case 'POST':
-            const apiUrl = `${process.env.NEXT_PUBLIC_STORAGE_URL}/upload?temporary=true&filePath="merges/pdf"`;
+            const apiUrl = `${process.env.API_STORAGE_URL}/upload?temporary=true&filePath="merges/pdf"`;
 
             console.log('Enviando arquivo para:', apiUrl);
             try {
@@ -15,7 +15,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                   method: 'POST',
                   headers: {
                     'Content-Type': 'multipart/form-data',
-                    'Authorization': `Bearer ${process.env.STORAGE_SERVICE_AUTHENTICATION}`, 
+                    'Authorization': `Bearer ${process.env.API_STORAGE_SERVICE_AUTHENTICATION}`, 
                   },
                   body: JSON.stringify(req.body),
                 });
